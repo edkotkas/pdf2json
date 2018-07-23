@@ -313,10 +313,19 @@ var WidgetAnnotation = (function WidgetAnnotationClosure() {
     var dict = params.dict;
     var data = this.data;
 
+    // special value field for checkboxes
+    if (
+      params.dict.map
+      && params.dict.map.V
+      && params.dict.map.V.name
+    ) {
+      data.cbValue = params.dict.map.V.name;
+    }
+
     data.fieldValue = stringToPDFString(
       Util.getInheritableProperty(dict, 'V') || '');
     data.alternativeText = stringToPDFString(dict.get('TU') || '');
-    
+
     data.alternativeID = stringToPDFString(dict.get('TM') || '');
 
     data.defaultAppearance = Util.getInheritableProperty(dict, 'DA') || '';

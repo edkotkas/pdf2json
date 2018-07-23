@@ -1,9 +1,9 @@
 {
-  "name": "pdf2json",
-  "version": "1.1.8",
-  "description": "A PDF file parser that converts PDF binaries to text based JSON, powered by porting a fork of PDF.JS to Node.js",
+  "name": "pdf2json_all_fields",
+  "version": "0.0.2",
+  "description": "A PDF file parser that converts PDF binaries to text based JSON, powered by porting a fork of PDF.JS to Node.js (fork, form fields added)",
   "keywords": [
-    "pdf",
+    "pdf get form fields",
     "pdf parser",
     "convert pdf to json",
     "server side PDF parser",
@@ -15,11 +15,7 @@
     "PDF canvas",
     "pdf.js fork"
   ],
-  "author": {
-    "name": "Modesty Zhang",
-    "email": "modestyz@hotmail.com",
-    "url": "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=62372"
-  },
+  "author": "Modesty Zhang <modestyz@hotmail.com> (http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=62372)",
   "homepage": "https://github.com/modesty/pdf2json",
   "repository": {
     "type": "git",
@@ -42,20 +38,9 @@
     "optimist": "^0.6.1",
     "async": "^2.0.1"
   },
-  "devDependencies": {
-  },
-  "bundledDependencies": [
-    "xmldom",
-    "lodash",
-    "optimist",
-    "async"
-  ],
+  "devDependencies": {},
   "maintainers": [
-    {
-      "name": "Modesty Zhang",
-      "email": "modestyz@hotmail.com",
-      "url": "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=62372"
-    }
+    "Modesty Zhang <modestyz@hotmail.com> (http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=62372)"
   ],
   "contributors": [],
   "bugs": {
@@ -67,5 +52,15 @@
       "url": "https://github.com/modesty/pdf2json/blob/master/license.txt"
     }
   ],
-  "readme": "https://github.com/modesty/pdf2json/blob/master/readme.md"
+  "bundleDependencies": [
+    "xmldom",
+    "lodash",
+    "optimist",
+    "async"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "license": "ISC"
 }
