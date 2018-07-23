@@ -329,40 +329,40 @@ var WidgetAnnotation = (function WidgetAnnotationClosure() {
 
     // Building the full field name by collecting the field and
     // its ancestors 'T' data and joining them using '.'.
-//    var fieldName = [];
-//    var namedItem = dict;
-//    var ref = params.ref;
-//    while (namedItem) {
-//      var parent = namedItem.get('Parent');
-//      var parentRef = namedItem.getRaw('Parent');
-//      var name = namedItem.get('T');
-//      if (name) {
-//        fieldName.unshift(stringToPDFString(name));
-//      } else {
-//        // The field name is absent, that means more than one field
-//        // with the same name may exist. Replacing the empty name
-//        // with the '`' plus index in the parent's 'Kids' array.
-//        // This is not in the PDF spec but necessary to id the
-//        // the input controls.
-//        var kids = parent.get('Kids');
-//        var j, jj;
-//        for (j = 0, jj = kids.length; j < jj; j++) {
-//          var kidRef = kids[j];
-//          if (kidRef.num == ref.num && kidRef.gen == ref.gen)
-//            break;
-//        }
-//        fieldName.unshift('`' + j);
-//      }
-//      namedItem = parent;
-//      ref = parentRef;
-//    }
-//    data.fullName = fieldName.join('.');
+   var fieldName = [];
+   var namedItem = dict;
+   var ref = params.ref;
+   while (namedItem) {
+     var parent = namedItem.get('Parent');
+     var parentRef = namedItem.getRaw('Parent');
+     var name = namedItem.get('T');
+     if (name) {
+       fieldName.unshift(stringToPDFString(name));
+     } else {
+       // The field name is absent, that means more than one field
+       // with the same name may exist. Replacing the empty name
+       // with the '`' plus index in the parent's 'Kids' array.
+       // This is not in the PDF spec but necessary to id the
+       // the input controls.
+       var kids = parent.get('Kids');
+       var j, jj;
+       for (j = 0, jj = kids.length; j < jj; j++) {
+         var kidRef = kids[j];
+         if (kidRef.num == ref.num && kidRef.gen == ref.gen)
+           break;
+       }
+       fieldName.unshift('`' + j);
+     }
+     namedItem = parent;
+     ref = parentRef;
+   }
+   data.fullName = fieldName.join('.');
 
 //END:MQZ. Sep.19.2012. comment out the fullname routin, replace it with getInheritableProperty('T') //PDF Spec P.689
 //It matches a sequence of at least one period or space, which is then replaced by a single underscore
-      var itemNameStr = stringToPDFString(Util.getInheritableProperty(dict, 'T') || '');
-      itemNameStr = itemNameStr.replace(/[.\s\W]+/g, '_'); //replace spaces and non-word character (not [^a-zA-Z0-9_]) with _
-      data.fullName = itemNameStr.replace(/^[\s_,:.;\/\\]+/, ''); //replace starting punctuation
+//       var itemNameStr = stringToPDFString(Util.getInheritableProperty(dict, 'T') || '');
+//       itemNameStr = itemNameStr.replace(/[.\s\W]+/g, '_'); //replace spaces and non-word character (not [^a-zA-Z0-9_]) with _
+//       data.fullName = itemNameStr.replace(/^[\s_,:.;\/\\]+/, ''); //replace starting punctuation
 
       PDFAnno.processAnnotation(dict, data);
   }
