@@ -360,12 +360,12 @@ var WidgetAnnotation = (function WidgetAnnotationClosure() {
          if (kidRef.num == ref.num && kidRef.gen == ref.gen)
            break;
        }
-       fieldName.unshift('`' + j);
+       fieldName.unshift('REMOVE');
      }
      namedItem = parent;
      ref = parentRef;
    }
-   data.fullName = fieldName.join('.');
+   data.fullName = fieldName.join('');
 
 //END:MQZ. Sep.19.2012. comment out the fullname routin, replace it with getInheritableProperty('T') //PDF Spec P.689
 //It matches a sequence of at least one period or space, which is then replaced by a single underscore
