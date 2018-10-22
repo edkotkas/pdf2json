@@ -1,5 +1,5 @@
 {
-  "name": "pdf2json_all_fields",
+  "name": "pdf2json",
   "version": "0.0.2",
   "description": "A PDF file parser that converts PDF binaries to text based JSON, powered by porting a fork of PDF.JS to Node.js (fork, form fields added)",
   "keywords": [
